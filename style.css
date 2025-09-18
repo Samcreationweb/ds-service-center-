@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eee;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+  flex: 1;
+  text-align: center;
+}
+
+/* HERO BANNER */
+.hero {
+  background: linear-gradient(135deg, #4A90E2, #3B7BD5);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 60px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.hero h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* SECTION */
+.section {
+  padding: 30px 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.section p {
+  font-size: 15px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* SERVICES GRID — FLIPKART STYLE */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.service-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.service-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.service-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 15px 10px 5px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #666;
+  margin: 0 10px 15px;
+  line-height: 1.5;
+}
+
+.btn {
+  display: block;
+  background-color: #4A90E2;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 0 10px 15px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #3B7BD5;
+}
+
+/* CONTACT SECTION */
+.contact .map {
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* QUOTE BANNER */
+.quote-banner {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.quote-banner p {
+  font-size: 18px;
+  font-style: italic;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.quote-banner span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4A90E2;
+}
+
+/* FLOATING WHATSAPP BUTTON */
+.floating-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+  z-index: 9999;
+  transition: transform 0.3s;
+}
+
+.floating-btn:hover {
+  transform: scale(1.1);
+}
+
+.floating-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card img {
+    height: 160px;
+  }
+
+  .hero h2 {
+    font-size: 22px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .floating-btn {
+    width: 56px;
+    height: 56px;
+  }
+
+  .floating-btn svg {
+    width: 26px;
+    height: 26px;
+  }
+}
