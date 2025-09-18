@@ -1,0 +1,312 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fffaf5; /* Soft peach */
+  color: #1a1a1a;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #ffe6f2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff6b9d;
+  text-shadow: 1px 1px 2px rgba(255, 107, 157, 0.2);
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff6b9d;
+  text-align: center;
+  flex: 1;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(255, 107, 157, 0.1);
+}
+
+/* HERO BANNER */
+.hero {
+  background: linear-gradient(135deg, #ffdde1 0%, #f8f8f8 100%);
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 60px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.1);
+  border-bottom: 1px dashed #ffcce6;
+}
+
+.hero h2 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #ff6b9d;
+  letter-spacing: -0.5px;
+}
+
+.hero p {
+  font-size: 17px;
+  color: #ff99aa;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* SECTION */
+.section {
+  padding: 30px 20px;
+  border-bottom: 1px dashed #ffe6f2;
+  background-color: #fffaf5;
+}
+
+.section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ff6b9d;
+  margin-bottom: 15px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section h2:after {
+  content: '🌸';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+}
+
+.section p {
+  font-size: 15px;
+  color: #888;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* SERVICES GRID — KAWAII CARDS */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.service-card {
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(255, 107, 157, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid #ffe6f2;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '💖';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 40px;
+  opacity: 0.1;
+  animation: floatHeart 3s infinite;
+}
+
+.service-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(255, 107, 157, 0.2);
+  border-color: #ff6b9d;
+}
+
+.service-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #ffe6f2;
+  transition: transform 0.5s;
+}
+
+.service-card:hover img {
+  transform: scale(1.08);
+}
+
+.service-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff6b9d;
+  margin: 15px 10px 5px;
+  letter-spacing: -0.3px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #888;
+  margin: 0 10px 15px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.btn {
+  display: block;
+  background-color: #ff6b9d;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 0 10px 15px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(255, 107, 157, 0.4);
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  background-color: #ff8cb0;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 107, 157, 0.5);
+}
+
+/* CONTACT SECTION */
+.contact .map {
+  margin-top: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #ffe6f2;
+}
+
+/* QUOTE BANNER */
+.quote-banner {
+  background: linear-gradient(135deg, #fff0f5 0%, #ffffff 100%);
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 40px;
+  border-top: 1px dashed #ffcce6;
+  border-bottom: 1px dashed #ffcce6;
+  position: relative;
+}
+
+.quote-banner p {
+  font-size: 18px;
+  font-style: italic;
+  color: #ff6b9d;
+  margin-bottom: 15px;
+  font-weight: 500;
+  line-height: 1.8;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quote-banner span {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff6b9d;
+  display: block;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.quote-banner::after {
+  content: '✨';
+  font-size: 30px;
+  opacity: 0.5;
+  display: block;
+  margin: 15px auto;
+}
+
+/* FLOATING WHATSAPP BUTTON */
+.floating-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+  z-index: 9999;
+  transition: all 0.3s ease;
+  border: 3px solid #fff;
+}
+
+.floating-btn:hover {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+}
+
+.floating-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* ANIMATION FOR FLOATING HEART */
+@keyframes floatHeart {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card img {
+    height: 160px;
+  }
+
+  .hero h2 {
+    font-size: 22px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .quote-banner p {
+    font-size: 16px;
+  }
+
+  .floating-btn {
+    width: 56px;
+    height: 56px;
+  }
+
+  .floating-btn svg {
+    width: 26px;
+    height: 26px;
+  }
+}
