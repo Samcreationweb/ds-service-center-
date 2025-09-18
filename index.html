@@ -4,8 +4,401 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DS Service Center — Anime Tech Repair</title>
-  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf5; /* Soft peach */
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Subtle Anime Background Pattern */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle, #ff6b9d 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.02;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #ffffff;
+      border-bottom: 2px solid #ffe6f2;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(255, 107, 157, 0.1);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ff6b9d;
+      text-shadow: 1px 1px 2px rgba(255, 107, 157, 0.2);
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ff6b9d;
+      text-align: center;
+      flex: 1;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(255, 107, 157, 0.1);
+    }
+
+    /* HERO BANNER */
+    .hero {
+      background: linear-gradient(135deg, #ffdde1 0%, #f8f8f8 100%);
+      text-align: center;
+      padding: 60px 20px 40px;
+      margin-top: 60px;
+      border-radius: 0 0 30px 30px;
+      box-shadow: 0 6px 20px rgba(255, 107, 157, 0.1);
+      border-bottom: 1px dashed #ffcce6;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "⚡";
+      position: absolute;
+      top: 20px;
+      left: 10%;
+      font-size: 40px;
+      opacity: 0.1;
+      animation: floatEmoji 4s infinite ease-in-out;
+    }
+
+    .hero::after {
+      content: "💖";
+      position: absolute;
+      bottom: 20px;
+      right: 10%;
+      font-size: 40px;
+      opacity: 0.1;
+      animation: floatEmoji 5s infinite ease-in-out reverse;
+    }
+
+    @keyframes floatEmoji {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .hero h2 {
+      font-size: 26px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: #ff6b9d;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: #ff99aa;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 30px 20px;
+      border-bottom: 1px dashed #ffe6f2;
+      background-color: #fffaf5;
+    }
+
+    .section h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ff6b9d;
+      margin-bottom: 15px;
+      text-align: center;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .section h2:after {
+      content: '🌸';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 20px;
+    }
+
+    .section p {
+      font-size: 15px;
+      color: #888;
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* SERVICES GRID — ANIME CARDS */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .service-card {
+      background-color: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(255, 107, 157, 0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid #ffe6f2;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '💖';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 40px;
+      opacity: 0.1;
+      animation: floatHeart 3s infinite;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(255, 107, 157, 0.2);
+      border-color: #ff6b9d;
+    }
+
+    .icon {
+      font-size: 60px;
+      margin: 20px auto;
+      color: #ff6b9d;
+      text-shadow: 0 0 10px rgba(255, 107, 157, 0.3);
+    }
+
+    .service-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ff6b9d;
+      margin: 15px 10px 5px;
+      letter-spacing: -0.3px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: #888;
+      margin: 0 10px 15px;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .btn {
+      display: block;
+      background-color: #ff6b9d;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      margin: 0 10px 15px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 10px rgba(255, 107, 157, 0.4);
+      letter-spacing: 0.5px;
+    }
+
+    .btn:hover {
+      background-color: #ff8cb0;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 107, 157, 0.5);
+    }
+
+    /* CONTACT SECTION */
+    .contact .map {
+      margin-top: 20px;
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid #ffe6f2;
+    }
+
+    /* QUOTE BANNER */
+    .quote-banner {
+      background: linear-gradient(135deg, #fff0f5 0%, #ffffff 100%);
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 40px;
+      border-top: 1px dashed #ffcce6;
+      border-bottom: 1px dashed #ffcce6;
+      position: relative;
+    }
+
+    .quote-banner p {
+      font-size: 18px;
+      font-style: italic;
+      color: #ff6b9d;
+      margin-bottom: 15px;
+      font-weight: 500;
+      line-height: 1.8;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .quote-banner span {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ff6b9d;
+      display: block;
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+
+    .quote-banner::after {
+      content: '✨';
+      font-size: 30px;
+      opacity: 0.5;
+      display: block;
+      margin: 15px auto;
+    }
+
+    /* FLOATING WHATSAPP BUTTON */
+    .floating-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      z-index: 9999;
+      transition: all 0.3s ease;
+      border: 3px solid #fff;
+    }
+
+    .floating-btn:hover {
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    .floating-btn svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes floatHeart {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(180deg); }
+      100% { transform: translateY(0) rotate(360deg); }
+    }
+
+    /* BOUNCING MASCOT */
+    .mascot {
+      position: fixed;
+      bottom: 120px;
+      left: 20px;
+      width: 80px;
+      z-index: 999;
+      animation: bounce 2s infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* KONAMI CODE ACTIVE STATE */
+    body.konami-active {
+      animation: screenShake 0.5s ease-in-out;
+      background-image: radial-gradient(circle, yellow 10%, transparent 10%), radial-gradient(circle, pink 10%, transparent 10%);
+      background-size: 50px 50px;
+      background-position: 0 0, 25px 25px;
+    }
+
+    @keyframes screenShake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .icon {
+        font-size: 50px;
+      }
+
+      .hero h2 {
+        font-size: 22px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .quote-banner p {
+        font-size: 16px;
+      }
+
+      .floating-btn {
+        width: 56px;
+        height: 56px;
+      }
+
+      .floating-btn svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      .mascot {
+        width: 60px;
+        bottom: 100px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -14,6 +407,22 @@
     <div class="logo">DS</div>
     <div class="brand">DS SERVICE CENTER</div>
   </header>
+
+  <!-- BOUNCING MASCOT (Replace with your own chibi image URL) -->
+  <div class="mascot">
+    <!-- Placeholder: Replace with actual chibi Dhanraj image -->
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="30" r="20" fill="#FFD6E7"/>
+      <circle cx="35" cy="25" r="3" fill="#333"/>
+      <circle cx="45" cy="25" r="3" fill="#333"/>
+      <path d="M35 35 Q40 40 45 35" stroke="#333" stroke-width="2" fill="none"/>
+      <circle cx="40" cy="60" r="20" fill="#FFD6E7"/>
+      <rect x="30" y="50" width="20" height="25" fill="#FFD6E7"/>
+      <rect x="25" y="55" width="5" height="20" fill="#FF9EBB"/>
+      <rect x="50" y="55" width="5" height="20" fill="#FF9EBB"/>
+      <text x="40" y="75" font-size="10" fill="#FF6B9D" text-anchor="middle">Dhanraj!</text>
+    </svg>
+  </div>
 
   <!-- HERO BANNER -->
   <div class="hero">
@@ -24,7 +433,7 @@
   <!-- ABOUT SECTION -->
   <section class="section">
     <h2>About Dhanraj</h2>
-    <p> i am Dhanraj from Egapuram. I fix broken gadgets like they’re my favorite anime characters. No fake parts. No overcharging. Just clean repairs and big smiles! 🧸📱</p>
+    <p>I am Dhanraj from Egapuram. I fix broken gadgets like they’re my favorite anime characters. No fake parts. No overcharging. Just clean repairs and big smiles! 🧸📱</p>
   </section>
 
   <!-- SERVICES GRID — ANIME ICONS -->
@@ -33,28 +442,28 @@
       <div class="icon">🎛️</div>
       <h3>Amplifier Repair</h3>
       <p>Home • Car • Studio<br>⚡ Sound so powerful, even your cat will dance!</p>
-      <button class="btn">Chat for Price 🎵</button>
+      <button class="btn">Summon Quote 🎵</button>
     </div>
 
     <div class="service-card">
       <div class="icon">🎤</div>
       <h3>Speaker Repair</h3>
       <p>Bluetooth • Wired • Portable<br>🔊 Bass so good, it makes you hug your phone!</p>
-      <button class="btn">Chat for Price 🐱</button>
+      <button class="btn">Summon Quote 🐱</button>
     </div>
 
     <div class="service-card">
       <div class="icon">🎧</div>
       <h3>Headphones & AirPods</h3>
       <p>Battery • Mic • Charging<br>🌈 One side not working? Let’s fix it with sparkles!</p>
-      <button class="btn">Chat for Price 🦄</button>
+      <button class="btn">Summon Quote 🦄</button>
     </div>
 
     <div class="service-card">
       <div class="icon">📱</div>
       <h3>Mobile Phone Repair</h3>
-      <p>Screen • Battery • Port • Water Damage<br>💫 1-Year Warranty + Free Hug 🤗</p>
-      <button class="btn">Chat for Price 🍡</button>
+      <p>Screen • Battery • Port • Water Damage<br>💫 1-Year Warranty + Hug Coupon 🤗</p>
+      <button class="btn">Summon Quote 🍡</button>
     </div>
   </section>
 
@@ -81,12 +490,38 @@
   </div>
 
   <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/919994943246" class="floating-btn" target="_blank">
+  <a href="https://wa.me/919994943246" class="floating-btn" target="_blank" aria-label="Chat with us on WhatsApp">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 13.228c-.287-1.236-1.17-2.17-2.432-2.646-.728-.288-1.58-.432-2.432-.432-.72 0-1.452.128-2.14.38-1.368.504-2.32 1.74-2.32 3.16 0 1.376.928 2.56 2.14 3.16.768.384 1.624.544 2.432.544.88 0 1.776-.176 2.504-.52 1.232-.6 2.024-1.76 2.168-3.12.024-.184.04-.368.04-.56 0-.24-.016-.472-.048-.704zm-4.552 2.88c-.888 0-1.728-.288-2.424-.832-.704-.544-1.168-1.312-1.32-2.224-.152-.912-.088-1.888.184-2.72.272-.84 1.12-1.48 2.12-1.704.776-.176 1.584-.128 2.28.144.704.272 1.192.768 1.432 1.424.256.656.28 1.424.088 2.12-.176.664-.52 1.232-1.016 1.584-.48.352-1.088.544-1.736.544zm1.52-5.28c-.424 0-.848-.144-1.184-.416-.336-.272-.52-.648-.52-1.056 0-.416.184-.792.52-1.056.336-.272.76-.416 1.184-.416.416 0 .84.144 1.184.416.328.264.504.64.504 1.056 0 .416-.176.792-.504 1.056-.336.272-.76.416-1.184.416zm4.72 5.28c-1.024 0-1.992-.32-2.768-.896-.776-.576-1.304-1.36-1.512-2.24-.208-.88-.168-1.84.12-2.696.288-.856.824-1.56 1.576-2.016.752-.456 1.672-.64 2.56-.52.88.12 1.68.448 2.28.96.6.512 1.008 1.184 1.152 1.952.144.768.024 1.56-.352 2.24-.376.672-1.016 1.184-1.784 1.424-.768.24-1.616.24-2.416.016zm-2.768-6.4c-.24 0-.472-.056-.68-.152-.208-.096-.368-.224-.456-.384-.088-.16-.096-.344-.016-.512.08-.16.224-.296.4-.384.176-.088.376-.12.576-.12.216 0 .424.04.6.12.176.088.32.224.408.384.088.16.08.344-.016.512-.096.16-.248.296-.456.384-.208.096-.44.152-.68.152z" fill="#25D366"/>
+      <path d="M17.472 13.228c-.287-1.236-1.17-2.17-2.432-2.646-.728-.288-1.58-.432-2.432-.432-.72 0-1.452.128-2.14.38-1.368.504-2.32 1.74-2.32 3.16 0 1.376.928 2.56 2.14 3.16.768.384 1.624.544 2.432.544.88 0 1.776-.176 2.504-.52 1.232-.6 2.024-1.76 2.168-3.12.024-.184.04-.368.04-.56 0-.24-.016-.472-.048-.704zm-4.552 2.88c-.888 0-1.728-.288-2.424-.832-.704-.544-1.168-1.312-1.32-2.224-.152-.912-.088-1.888.184-2.72.272-.84 1.12-1.48 2.12-1.704.776-.176 1.584-.128 2.28.144.704.272 1.192.768 1.432 1.424.256.656.28 1.424.088 2.12-.176.664-.52 1.232-1.016 1.584-.48.352-1.088.544-1.736.544zm1.52-5.28c-.424 0-.848-.144-1.184-.416-.336-.272-.52-.648-.52-1.056 0-.416.184-.792.52-1.056.336-.272.76-.416 1.184-.416.416 0 .84.144 1.184.416.328.264.504.64.504 1.056 0 .416-.176.792-.504 1.056-.336.272-.76.416-1.184.416zm4.72 5.28c-1.024 0-1.992-.32-2.768-.896-.776-.576-1.304-1.36-1.512-2.24-.208-.88-.168-1.84.12-2.696.288-.856.824-1.56 1.576-2.016.752-.456 1.672-.64 2.56-.52.88.12 1.68.448 2.28.96.6.512 1.008 1.184 1.152 1.952.144.768.024 1.56-.352 2.24-.376.672-1.016 1.184-1.784 1.424-.768.24-1.616.24-2.416.016zm-2.768-6.4c-.24 0-.472-.056-.68-.152-.208-.096-.368-.224-.456-.384-.088-.16-.096-.344-.016-.512.08-.16.224-.296.4-.384.176-.088.376-.12.576-.12.216 0 .424.04.6.12.176.088.32.224.408.384.088.16.08.344-.016.512-.096.16-.248.296-.456.384-.208.096-.44.152-.68.152z" fill="#fff"/>
     </svg>
   </a>
 
-  <script src="script.js"></script>
+  <script>
+    // Konami Code Easter Egg
+    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiIndex = 0;
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiCode.length) {
+          document.body.classList.add('konami-active');
+          setTimeout(() => {
+            document.body.classList.remove('konami-active');
+          }, 1000);
+          konamiIndex = 0;
+        }
+      } else {
+        konamiIndex = 0;
+      }
+    });
+
+    // Optional: Add click event to buttons to open WhatsApp
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('click', () => {
+        window.open('https://wa.me/919994943246?text=Hi%20Dhanraj!%20I%20need%20help%20with%20my%20gadget%20✨💖', '_blank');
+      });
+    });
+  </script>
 </body>
 </html>
